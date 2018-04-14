@@ -55,14 +55,14 @@ public class Genesis {
             return 0;
     }
 
-    public Candidate crossover(Candidate P,Candidate Q){
+    public Candidate crossover(Candidate P,Candidate Q,int N){
         int l=P.getGeno().length;
         int[] sonCan = new int[l];
         for (int i=0; i<l; i++){
             double d=(Math.random()*100);
-            if (d>0 && d<=45)
+            if (d>0 && d<=((100-N)/2))
                 sonCan[i]=P.getGeno()[i];
-            else if (d>45 && d<=90)
+            else if (d>((100-N)/2) && d<=(100-N))
                 sonCan[i]=Q.getGeno()[i];
             else
                 sonCan[i]=mutate();
@@ -82,13 +82,13 @@ public class Genesis {
         return temp;
     }
 
-    public ArrayList<Candidate> breed(ArrayList<Candidate> parent, int M){
+    public ArrayList<Candidate> breed(ArrayList<Candidate> parent, int M,int N){
         ArrayList<Candidate> temp = new ArrayList<>(M);
         for (int i=0;i<M;i++){
             int P=0, Q=0;
             P=(int)(Math.random()*parent.size());
             Q=(int)(Math.random()*parent.size());
-            Candidate son = crossover(parent.get(P),parent.get(Q));
+            Candidate son = crossover(parent.get(P),parent.get(Q),N);
             temp.add(son);
             }
             return temp;

@@ -9,7 +9,7 @@ public class FunctionTester {
     int[] geno = {0,1,0,1};
     int[] raw = {1,2,3,4};
 
-    @org.junit.Test
+    @Test
     public void testFitness(){
         Candidate candidate = new Candidate(geno, raw);
         assertEquals(candidate.fitness(), 6);
