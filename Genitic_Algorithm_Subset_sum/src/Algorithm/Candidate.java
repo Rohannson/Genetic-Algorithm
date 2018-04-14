@@ -3,30 +3,13 @@ package Algorithm;
 public class Candidate implements Comparable<Candidate>{
 
     private int[] geno;
+    private int[] raw;
     private int fit;
 
-    public Candidate(int M){
-        initialization(M);
-
-    }
-    private int[] initialization(int num){
-            for (int i = 0; i < num; i ++){
-                double random=Math.random();
-                if (random>0.5)
-                    geno[i] = 1;
-                else
-                    geno[i] = 0;
-            }
-            return geno;
-    }
-
-    public int fitness(int[] raw){
-        for(int i = 0; i <raw.length; i++){
-            fit+= raw[i] * geno[i];
-        }
-        fit = Math.abs(fit);
-
-        return fit;
+    public Candidate(int[] geno, int[] raw){
+        this.geno = geno;
+        this.raw = raw;
+        this.fit = fitness();
     }
 
     public int[] getGeno() {
@@ -45,13 +28,22 @@ public class Candidate implements Comparable<Candidate>{
         this.fit = fit;
     }
 
+    public int fitness( ){
+        int fit = 0;
+        for(int i: geno){
+            fit += raw[i] * i;
+        }
+        fit = Math.abs(fit);
+        return fit;
+    }
+
     @Override
     public int compareTo(Candidate can){
-        if (fit==can.fit)
-            return 0;
-        else if (fit>can.fit)
+        if (fit>can.fit)
             return 1;
-        else
+        else if (fit<can.fit)
             return -1;
+        else
+            return 0;
     }
 }
