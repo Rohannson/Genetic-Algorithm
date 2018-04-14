@@ -30,8 +30,9 @@ public class Candidate implements Comparable<Candidate>{
 
     public int fitness( ){
         int fit = 0;
-        for(int i: geno){
-            fit += raw[i] * i;
+        for(int i = 0; i < geno.length; i++){
+            fit = fit + (raw[i] * geno[i]);
+
         }
         fit = Math.abs(fit);
         return fit;
