@@ -35,7 +35,8 @@ public class Genesis {
     public int[] init( ){
         int[] result = new int[num];
         for (int i = 0; i < num; i ++){
-            result[i] = (int) (Math.random());
+            if(Math.random() > 0.5) result[i] = 1;
+            else result[i] = 0;
         }
         return result;
     }
