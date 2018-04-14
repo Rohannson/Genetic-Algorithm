@@ -8,7 +8,7 @@ public class Candidate {
     public Candidate(int[] geno, int fit){
         this.geno = geno;
         this.fit = fit;
-        this.survial = survial;
+
     }
 
     public int[] getGeno() {
