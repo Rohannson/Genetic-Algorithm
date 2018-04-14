@@ -1,5 +1,6 @@
 package Main;
 
+
 import Algorithm.Candidate;
 import Algorithm.Genesis;
 
@@ -35,7 +36,7 @@ public class Main {
             e.printStackTrace();
         }
         ArrayList<Candidate> Temp;
-        ArrayList<Candidate> Parent = test.getOrigin();
+        ArrayList<Candidate> Parent = test.origin;
         for (int i = 0; i < Generation; i++) {
             Temp = test.evolve(Parent, ParentSimplingRate);
             try {
@@ -44,7 +45,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Parent = test.breed(Temp, ParentTakeQuantity , MutationRate);
+            Parent = test.breed(Temp, ParentTakeQuantity, MutationRate);
         }
         try {
             bw.flush();
@@ -53,6 +54,6 @@ public class Main {
             e.printStackTrace();
         }
     }
-
 }
+
 
