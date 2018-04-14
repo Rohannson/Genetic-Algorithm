@@ -51,7 +51,7 @@ public class Genesis {
     }
 
     public Candidate crossover(Candidate P,Candidate Q,int N, int pro){
-        int l=P.getGeno().length;
+        int l = P.getGeno().length;
         int[] sonCan = new int[l];
         for (int i=0; i<l; i++){
             if (i < N){
@@ -65,6 +65,7 @@ public class Genesis {
 
         Candidate temp = new Candidate(sonCan, raw);
         return temp;
+
     }
 
     public ArrayList<Candidate> evolve(ArrayList<Candidate> generation, int M){

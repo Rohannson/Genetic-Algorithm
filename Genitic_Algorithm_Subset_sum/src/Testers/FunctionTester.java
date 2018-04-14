@@ -13,9 +13,18 @@ public class FunctionTester {
     int[] geno = {0,1,0,1};
     int[] subGeno = {1,1,0,1};
     int[] raw = {1,2,3,4};
+
     int n = 50;
     Candidate testPop = new Candidate(geno, raw);
     Candidate testMom = new Candidate(subGeno, raw);
+
+    private int[] makeGeno(){
+        int[] tmp = new int[60];
+        for(int i = 0; i < 60; i++){
+            tmp[i] = 0;
+        }
+        return tmp;
+    }
 
     @Test
     public void testFitness(){
@@ -50,12 +59,26 @@ public class FunctionTester {
 
     @Test
     public void testMutate(){
-        Genesis genesis = new Genesis(10, 10);
-        assertEquals(true, genesis.mutate() == 0 || genesis.mutate() == 1);
+        boolean check = false;
+        boolean ignore = false;
+        Genesis genesis = new Genesis(60, 60);
+        for (int i = 0; i < 60; i++){
+            if(i < 51) {
+                if (genesis.mutate(makeGeno())[i] != makeGeno()[i]) {
+                    check = true;
+                }
+            }
+            else{
+                if(genesis.mutate(makeGeno())[i] == makeGeno()[i]){
+                    ignore = true;
+                }
+            }
+        }
+        assertEquals(true, check);
+        assertEquals(true, ignore);
     }
 
     public void testCrossover(){
         Genesis genesis = new Genesis(10, 10);
-
     }
 }
