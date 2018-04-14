@@ -11,7 +11,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+=======
+    <leaf>
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
       <file leaf-file-name="Candidate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithm/Candidate.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -34,8 +38,13 @@
       <file leaf-file-name="Genesis.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Algorithm/Genesis.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="630">
               <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+=======
+            <state relative-caret-position="570">
+              <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
               <folding />
             </state>
           </provider>
@@ -267,13 +276,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523652862506</updated>
+<<<<<<< HEAD
       <workItem from="1523652865825" duration="11080000" />
       <workItem from="1523718890836" duration="476000" />
+=======
+      <workItem from="1523652865825" duration="11526000" />
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="11556000" />
+=======
+    <option name="totallyTimeSpent" value="11526000" />
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -351,6 +368,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -360,6 +378,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithm/Fitness.java" />
+=======
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
     <entry file="file://$PROJECT_DIR$/src/Algorithm/Candidate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -377,6 +397,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Testers/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -397,6 +418,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/Algorithm/Genesis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+>>>>>>> 8b96de5a77ebdd0749ef42910436521fb6a462d1
           <folding />
         </state>
       </provider>
