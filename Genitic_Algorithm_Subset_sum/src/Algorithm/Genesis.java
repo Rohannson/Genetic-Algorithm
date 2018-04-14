@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 public class Genesis {
 
-    int num;
-    int can_size;
-    public ArrayList<Candidate> Origin;
+    private int num;
+    private int can_size;
+    private ArrayList<Candidate> origin;
     final int[] raw = new int[num];
 
     public Genesis(int num, int can_size) {
         this.num = num;
         this.can_size = can_size;
+        rawset();
+        genesis();
     }
 
-    public ArrayList<Candidate> Genesis(){
-        ArrayList<Candidate> origin = new ArrayList<>();
+    private int[] rawset(){
         double d = 0;
         int p = 0;
         for (int i = 0; i < num; i++) {
@@ -24,21 +25,32 @@ public class Genesis {
             else p = -1;
             raw[i] = (int) (Math.random() * 100 * p);
         }
-
-        for (int i = 0; i < can_size; i++){
-            Candidate e = new Candidate(init(), 0);
-        }
+        return raw;
     }
 
-    public Candidate Fitness(Candidate candidate){
-        int[] temp = candidate.getGeno();
-        int fit = 0;
-
-        for(int i = 0; i < num; i ++){
-            fit += raw[i] * temp[i];
+    private ArrayList<Candidate> genesis(){
+        for (int i = 0; i < can_size; i++){
+            Candidate e = new Candidate(num);
+            origin.add(e);
         }
-        fit = Math.abs(fit);
-        candidate.setFit(fit);
+        return origin;
+    }
+
+    
+//    public Candidate fitness(Candidate candidate){
+//        int[] temp = candidate.getGeno();
+//        int fit = 0;
+//
+//        for(int i = 0; i < num; i++){
+//            fit += raw[i] * temp[i];
+//        }
+//        fit = Math.abs(fit);
+//        candidate.setFit(fit);
+//
+//        return candidate;
+//    }
+
+
 //        Collections.sort(get.parentgeneations, new Comparator<Integer>() {
 //            @Override
 //            public int compare(Integer o1, Integer o2) {
@@ -47,15 +59,5 @@ public class Genesis {
 //
 //            public void com
 //        });
-        return candidate;
-    }
-
-    public int[] init( ){
-        int[] result = new int[num];
-        for (int i = 0; i < num; i ++){
-            result[i] = (int) (Math.random());
-        }
-        return result;
-    }
 
 }
