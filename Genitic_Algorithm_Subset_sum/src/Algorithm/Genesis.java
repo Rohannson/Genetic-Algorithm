@@ -1,28 +1,30 @@
 package Algorithm;
 
-import com.sun.java.swing.ui.OkCancelDialog;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Genesis {
+
 
     private int num;
     private int can_size;
     private ArrayList<Candidate> origin;
-    final int[] raw = new int[num];
+    final int[] raw;
+
 
 
     public Genesis(int num, int can_size) {
         this.num = num;
         this.can_size = can_size;
+
+        origin = new ArrayList<>(can_size);
+        raw = new int[num];
     }
 
-    public ArrayList<Candidate> genesy() {
-        double d = 0;
-        int p = 0;
+    public ArrayList<Candidate> genesy(){
+        double d;
+        int p;
+
         for (int i = 0; i < num; i++) {
             d = Math.random();
             if (d > 0.5) p = 1;
@@ -36,7 +38,7 @@ public class Genesis {
         return origin;
     }
 
-    private int[] init() {
+    public int[] init( ){
         int[] result = new int[num];
         for (int i = 0; i < num; i++) {
             if (Math.random() > 0.5) result[i] = 1;
@@ -45,7 +47,8 @@ public class Genesis {
         return result;
     }
 
-    private int mutate() {
+
+    public int mutate(){
         double d = Math.random();
         if (d > 0.5)
             return 1;
@@ -80,13 +83,13 @@ public class Genesis {
         return temp;
     }
 
-    public ArrayList<Candidate> breed(ArrayList<Candidate> parent, int M, int N) {
-        ArrayList<Candidate> temp = new ArrayList<>(M);
-        for (int i = 0; i < M; i++) {
-            int P = 0, Q = 0;
-            P = (int) (Math.random() * parent.size());
-            Q = (int) (Math.random() * parent.size());
-            Candidate son = crossover(parent.get(P), parent.get(Q), N);
+    public ArrayList<Candidate> breed(ArrayList<Candidate> parent,int N){
+        ArrayList<Candidate> temp = new ArrayList<>(can_size);
+        for (int i=0;i<can_size;i++){
+            int P=0, Q=0;
+            P=(int)(Math.random()*parent.size());
+            Q=(int)(Math.random()*parent.size());
+            Candidate son = crossover(parent.get(P),parent.get(Q),N);
             temp.add(son);
         }
         return temp;
