@@ -12,6 +12,14 @@ public class Candidate implements Comparable<Candidate>{
         this.fit = fitness();
     }
 
+    public int fitness( ){
+        int fit = 0;
+        for(int i = 0; i < geno.length; i++){
+            fit = fit + (raw[i] * geno[i]);
+        }
+        fit = Math.abs(fit);
+        return fit;
+    }
     public int[] getGeno() {
         return geno;
     }
@@ -27,17 +35,6 @@ public class Candidate implements Comparable<Candidate>{
     public void setFit(int fit) {
         this.fit = fit;
     }
-
-    public int fitness( ){
-        int fit = 0;
-        for(int i = 0; i < geno.length; i++){
-            fit = fit + (raw[i] * geno[i]);
-
-        }
-        fit = Math.abs(fit);
-        return fit;
-    }
-
 
     @Override
     public int compareTo(Candidate can){
