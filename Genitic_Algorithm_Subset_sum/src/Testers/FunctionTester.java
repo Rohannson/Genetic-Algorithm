@@ -11,7 +11,11 @@ import static org.junit.Assert.assertEquals;
 public class FunctionTester {
 
     int[] geno = {0,1,0,1};
+    int[] subGeno = {1,1,0,1};
     int[] raw = {1,2,3,4};
+    int n = 50;
+    Candidate testPop = new Candidate(geno, raw);
+    Candidate testMom = new Candidate(subGeno, raw);
 
     @Test
     public void testFitness(){
@@ -44,4 +48,14 @@ public class FunctionTester {
         assertEquals(count, 10);
     }
 
+    @Test
+    public void testMutate(){
+        Genesis genesis = new Genesis(10, 10);
+        assertEquals(true, genesis.mutate() == 0 || genesis.mutate() == 1);
+    }
+
+    public void testCrossover(){
+        Genesis genesis = new Genesis(10, 10);
+
+    }
 }
