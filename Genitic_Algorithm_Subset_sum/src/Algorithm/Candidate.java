@@ -37,6 +37,7 @@ public class Candidate implements Comparable<Candidate>{
         return fit;
     }
 
+
     @Override
     public int compareTo(Candidate can){
         if (fit>can.fit)
