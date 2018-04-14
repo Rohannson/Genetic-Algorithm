@@ -6,7 +6,7 @@ public class Genesis {
 
     int num;
     int can_size;
-    public ArrayList<Candidate> Origin;
+    public ArrayList<Candidate> origin;
     final int[] raw = new int[num];
 
     public Genesis(int num, int can_size) {
@@ -14,8 +14,8 @@ public class Genesis {
         this.can_size = can_size;
     }
 
-    public ArrayList<Candidate> Genesis(){
-        ArrayList<Candidate> origin = new ArrayList<>();
+    public ArrayList<Candidate> genesy(){
+        origin = new ArrayList<>();
         double d = 0;
         int p = 0;
         for (int i = 0; i < num; i++) {
@@ -24,31 +24,13 @@ public class Genesis {
             else p = -1;
             raw[i] = (int) (Math.random() * 100 * p);
         }
-
         for (int i = 0; i < can_size; i++){
-            Candidate e = new Candidate(init(), 0);
+            Candidate e = new Candidate(init(), raw);
+            origin.add(e);
         }
+        return origin;
     }
 
-    public Candidate Fitness(Candidate candidate){
-        int[] temp = candidate.getGeno();
-        int fit = 0;
-
-        for(int i = 0; i < num; i ++){
-            fit += raw[i] * temp[i];
-        }
-        fit = Math.abs(fit);
-        candidate.setFit(fit);
-//        Collections.sort(get.parentgeneations, new Comparator<Integer>() {
-//            @Override
-//            public int compare(Integer o1, Integer o2) {
-//                return 0;
-//            }
-//
-//            public void com
-//        });
-        return candidate;
-    }
 
     public int[] init( ){
         int[] result = new int[num];
