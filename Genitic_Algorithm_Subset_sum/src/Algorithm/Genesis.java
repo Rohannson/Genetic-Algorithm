@@ -69,7 +69,7 @@ public class Genesis {
     }
 
     public ArrayList<Candidate> evolve(ArrayList<Candidate> generation, int M){
-        int N = ((M/100)*generation.size());
+        int N = (int)((M * 1.0 / 100)*generation.size());
         Collections.sort(generation);
         ArrayList<Candidate> temp = new ArrayList<>(generation.size());
         for (int i=0; i<N; i++){
