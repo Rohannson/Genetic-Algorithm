@@ -1,6 +1,7 @@
 package Main;
 
 
+
 import Algorithm.Candidate;
 import Algorithm.Genesis;
 
@@ -65,6 +66,5 @@ public class Main {
             e.printStackTrace();
         }
     }
+
 }
-
-

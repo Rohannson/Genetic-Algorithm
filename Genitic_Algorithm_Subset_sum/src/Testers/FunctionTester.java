@@ -17,6 +17,14 @@ public class FunctionTester {
     int n = 50;
     Candidate testPop = new Candidate(geno, raw);
     Candidate testMom = new Candidate(subGeno, raw);
+    ArrayList<Candidate> testList;
+
+    public FunctionTester(){
+        testList = new ArrayList<>();
+        testList.add(testPop);
+        testList.add(testMom);
+        System.out.println(testList.size());
+    }
 
     private int[] makeGeno(){
         int[] tmp = new int[60];
@@ -78,7 +86,26 @@ public class FunctionTester {
         assertEquals(true, ignore);
     }
 
+    @Test
     public void testCrossover(){
+        Candidate temp;
         Genesis genesis = new Genesis(10, 10);
+        temp = genesis.crossover(testPop, testMom, 3, 0);
+        assertEquals(testPop.getGeno()[0], temp.getGeno()[0]);
+        assertEquals(testPop.getGeno()[1], temp.getGeno()[1]);
+        assertEquals(testMom.getGeno()[2], temp.getGeno()[2]);
+        assertEquals(testPop.getGeno()[3], temp.getGeno()[3]);
     }
+
+    @Test
+    public void testEvolve(){
+        Genesis genesis = new Genesis(4,2);
+        System.out.println("Look: " + genesis.evolve(testList, 50).get(0).getFit());
+        assertEquals(6, genesis.evolve(testList, 50).get(0).getFit());
+    }
+
+    public void testBreedd(){
+
+    }
+
 }
