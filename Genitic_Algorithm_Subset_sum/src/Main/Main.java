@@ -9,16 +9,17 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
     public static void main(String[] args) {
-        int RawLength = 20;
+        int RawLength = 200;
         int CandidateQuantity = 1000;
-        int ParentSimplingRate = 50;
-        int ParentTakeQuantity = 50;
-        int MutationRate = 10;
-        int Generation = 70;
+        int ParentSimplingRate = 80;
+        int ParentTakeRate = 40;
+        int MutationRate = 50;
+        int Generation = 100;
         Genesis test = new Genesis(RawLength, CandidateQuantity);
         test.genesy();
         File file = new File("result.csv");
@@ -39,13 +40,23 @@ public class Main {
         ArrayList<Candidate> Parent = test.origin;
         for (int i = 0; i < Generation; i++) {
             Temp = test.evolve(Parent, ParentSimplingRate);
+
+            System.out.println("Generation "+(i+1)+":"+Temp.get(0).fitness());
+            Temp.get(0).displayMapping().forEach((x)->System.out.print(x+" "));
+            System.out.println();
             try {
                 bw.write(Temp.get(0).getFit() + "");
+
                 bw.newLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Parent = test.breed(Temp, ParentTakeQuantity, MutationRate);
+
+
+//            System.out.println(Parent.get(0).getFit());
+            Parent = test.breed(Temp, ParentTakeRate, MutationRate);
+            Parent.add(Temp.get(0));
+            Collections.sort(Parent);
         }
         try {
             bw.flush();

@@ -22,9 +22,11 @@ public class Genesis {
         int p;
         for (int i = 0; i < num; i++) {
             d = Math.random();
-            if(d > 0.5) p = 1;
-            else p = -1;
-            raw[i] = (int) (Math.random() * 100 * p);
+            if(d > 0.5)
+                raw[i] = (int) (Math.random() * 10000 * 1);
+            else
+                raw[i] = (int) (Math.random() * 1000 * (-1));
+
         }
         for (int i = 0; i < can_size; i++){
             Candidate e = new Candidate(init(), raw);
@@ -43,7 +45,7 @@ public class Genesis {
     }
 
     public int[] mutate(int[] son){
-        for(int i = 0; i < 50; i ++ ){
+        for(int i = 0; i < 200; i ++ ){
             if(son[i] == 1) son[i] = 0;
             else son[i] = 1;
         }
@@ -52,13 +54,15 @@ public class Genesis {
 
     public Candidate crossover(Candidate P,Candidate Q,int N, int pro){
         int l = P.getGeno().length;
+        int M = (int)(((N*1.0/100)*l));
         int[] sonCan = new int[l];
         for (int i=0; i<l; i++){
-            if (i < N){
+            double d=Math.random();
+            if (d >0.5){
                 sonCan[i] = P.getGeno()[i];
             }
             else sonCan[i] = Q.getGeno()[i];
-            if((Math.random() * 10000) < pro){
+            if((Math.random() * 100000) < pro){
                 sonCan = mutate(sonCan);
             }
         }
@@ -69,7 +73,7 @@ public class Genesis {
     }
 
     public ArrayList<Candidate> evolve(ArrayList<Candidate> generation, int M){
-        int N = ((M/100)*generation.size());
+        int N = (int)(((M*1.0/100)*generation.size()));
         Collections.sort(generation);
         ArrayList<Candidate> temp = new ArrayList<>(generation.size());
         for (int i=0; i<N; i++){
@@ -80,7 +84,7 @@ public class Genesis {
 
     public ArrayList<Candidate> breed(ArrayList<Candidate> parent,int N, int M){
         ArrayList<Candidate> temp = new ArrayList<>(can_size);
-        for (int i=0;i<can_size;i++){
+        for (int i=1;i<can_size;i++){
             int P=0, Q=0;
             P=(int)(Math.random()*parent.size());
             Q=(int)(Math.random()*parent.size());

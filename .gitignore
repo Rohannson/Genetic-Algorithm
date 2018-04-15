@@ -30,3 +30,5 @@ hs_err_pid*
 Genitic_Algorithm_Subset_sum/.DS_Store
 Genitic_Algorithm_Subset_sum/.idea/workspace.xml
 Genitic_Algorithm_Subset_sum/.idea/workspace.xml
+*.xml
+*.xml
