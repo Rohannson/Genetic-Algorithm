@@ -15,12 +15,12 @@ import java.util.Collections;
 public class Main {
 
     public static void main(String[] args) {
-        int RawLength = 200;
+        int RawLength = 500;
         int CandidateQuantity = 1000;
         int ParentSimplingRate = 80;
-        int ParentTakeRate = 40;
-        int MutationRate = 50;
-        int Generation = 100;
+        int ParentTakeRate = 50;
+        int MutationRate = 15;
+        int Generation = 150;
         Genesis test = new Genesis(RawLength, CandidateQuantity);
         test.genesy();
         File file = new File("result.csv");
@@ -42,29 +42,34 @@ public class Main {
         for (int i = 0; i < Generation; i++) {
             Temp = test.evolve(Parent, ParentSimplingRate);
 
-            System.out.println("Generation "+(i+1)+":"+Temp.get(0).fitness());
-            Temp.get(0).displayMapping().forEach((x)->System.out.print(x+" "));
-            System.out.println();
+            System.out.println("Generation "+(i+1)+":"+Temp.get(0).getFit());
+//            Temp.get(0).displayMapping().forEach((x)->System.out.print(x+" "));
+//            System.out.println();
             try {
                 bw.write(Temp.get(0).getFit() + "");
 
                 bw.newLine();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
 
-//            System.out.println(Parent.get(0).getFit());
+
             Parent = test.breed(Temp, ParentTakeRate, MutationRate);
             Parent.add(Temp.get(0));
             Collections.sort(Parent);
+            if ( i==(Generation-1)){Temp.get(0).displayMapping().forEach((x)->System.out.print(x+" "));
+           System.out.println();}
         }
+
         try {
             bw.flush();
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }
