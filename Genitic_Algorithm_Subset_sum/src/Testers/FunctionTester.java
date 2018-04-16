@@ -14,7 +14,6 @@ public class FunctionTester {
     int[] subGeno = {1,1,0,1};
     int[] raw = {1,2,3,4};
 
-    int n = 50;
     Candidate testPop = new Candidate(geno, raw);
     Candidate testMom = new Candidate(subGeno, raw);
     ArrayList<Candidate> testList;
@@ -27,8 +26,8 @@ public class FunctionTester {
     }
 
     private int[] makeGeno(){
-        int[] tmp = new int[60];
-        for(int i = 0; i < 60; i++){
+        int[] tmp = new int[210];
+        for(int i = 0; i < 210; i++){
             tmp[i] = 0;
         }
         return tmp;
@@ -69,9 +68,9 @@ public class FunctionTester {
     public void testMutate(){
         boolean check = false;
         boolean ignore = false;
-        Genesis genesis = new Genesis(60, 60);
-        for (int i = 0; i < 60; i++){
-            if(i < 51) {
+        Genesis genesis = new Genesis(200, 200);
+        for (int i = 0; i < 210; i++){
+            if(i < 201) {
                 if (genesis.mutate(makeGeno())[i] != makeGeno()[i]) {
                     check = true;
                 }
@@ -90,11 +89,11 @@ public class FunctionTester {
     public void testCrossover(){
         Candidate temp;
         Genesis genesis = new Genesis(10, 10);
-        temp = genesis.crossover(testPop, testMom, 3, 0);
-        assertEquals(testPop.getGeno()[0], temp.getGeno()[0]);
-        assertEquals(testPop.getGeno()[1], temp.getGeno()[1]);
-        assertEquals(testMom.getGeno()[2], temp.getGeno()[2]);
-        assertEquals(testPop.getGeno()[3], temp.getGeno()[3]);
+        temp = genesis.crossover(testPop, testMom, 0);
+        assertEquals(true, temp.getGeno()[0] == testPop.getGeno()[0] || temp.getGeno()[0] == testMom.getGeno()[0]);
+        assertEquals(true, temp.getGeno()[1] == testPop.getGeno()[1] || temp.getGeno()[1] == testMom.getGeno()[1]);
+        assertEquals(true, temp.getGeno()[2] == testPop.getGeno()[2] || temp.getGeno()[2] == testMom.getGeno()[2]);
+        assertEquals(true, temp.getGeno()[3] == testPop.getGeno()[3] || temp.getGeno()[3] == testMom.getGeno()[3]);
     }
 
     @Test
