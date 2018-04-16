@@ -1,11 +1,21 @@
 package Algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Candidate implements Comparable<Candidate>{
 
     private int[] geno;
     private int[] raw;
     private int fit;
-
+    public List<Integer> displayMapping(){
+        List<Integer> list=new ArrayList<>();
+        for (int i=0;i<geno.length;i++){
+            if (geno[i]!=0)
+                list.add(raw[i]);
+        }
+        return list;
+    }
     public Candidate(int[] geno, int[] raw){
         this.geno = geno;
         this.raw = raw;
@@ -30,13 +40,18 @@ public class Candidate implements Comparable<Candidate>{
 
     public int fitness( ){
         int fit = 0;
+        int count=0;
         for(int i = 0; i < geno.length; i++){
             fit = fit + (raw[i] * geno[i]);
-            System.out.println(fit);
+            if (geno[i]!=0) count++;
+
         }
+
         fit = Math.abs(fit);
+        if (count==0) fit+=1000;
         return fit;
     }
+
 
     @Override
     public int compareTo(Candidate can){
