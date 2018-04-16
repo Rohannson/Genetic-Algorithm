@@ -48,7 +48,7 @@ public class Candidate implements Comparable<Candidate>{
         }
 
         fit = Math.abs(fit);
-        if (count==0) count+=1000;
+        if (count==0) fit+=10000;
         return fit;
     }
 
