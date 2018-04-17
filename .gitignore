@@ -21,12 +21,7 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 *.xml
-<<<<<<< HEAD
-*.xml
-*.xml
-*.xml
-=======
->>>>>>> master
+
 Genitic_Algorithm_Subset_sum/.DS_Store
 Genitic_Algorithm_Subset_sum/.idea/workspace.xml
 Genitic_Algorithm_Subset_sum/.idea/workspace.xml
@@ -35,6 +30,5 @@ Genitic_Algorithm_Subset_sum/.idea/workspace.xml
 *.xml
 *.xml
 Genitic_Algorithm_Subset_sum/.idea/workspace.xml
-*.xml
 *.xml
 *.xml
